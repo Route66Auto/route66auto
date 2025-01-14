@@ -280,12 +280,15 @@ const Headers = () => {
                   <span>{userInfo.name}</span>
                 </Link>
               ) : (
-                <div className="flex cursor-pointer justify-center items-center gap-2 text-sm">
+                <Link
+                  to="/login"
+                  className="flex cursor-pointer justify-center items-center gap-2 text-sm"
+                >
                   <span>
                     <FaLock />
                   </span>
                   <span>Entrar</span>
-                </div>
+                </Link>
               )}
             </div>
             <ul className="flex flex-col justify-start items-start text-md font-semibold uppercase">
