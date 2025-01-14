@@ -122,7 +122,7 @@ const Headers = () => {
                 <Link to="/">
                   <img
                     className="w-[110px] h-[110px] md:w-[120px] md:h-[120px] transition-all duration-300"
-                    src="images/logo.png"
+                    src="/images/logo.png"
                     alt="logo"
                   />
                 </Link>
