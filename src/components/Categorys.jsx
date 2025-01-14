@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Categorys = () => {
-  
-  const { categorys } = useSelector(state=>state.home)
+  const { categorys } = useSelector((state) => state.home);
 
   const responsive = {
     superLargeDesktop: {
@@ -50,8 +49,14 @@ const Categorys = () => {
                 alt={category}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
+              <Link
+                to={`/products?category=${c.name}`}
+                className="text-sm block"
+              ></Link>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3">
-                <span className="text-white font-semibold text-lg">{category.name}</span>
+                <span className="text-white font-semibold text-lg">
+                  {category.name}
+                </span>
               </div>
             </div>
           </Link>
@@ -68,7 +73,8 @@ const CustomLeftArrow = ({ onClick }) => {
       aria-label="Previous Slide"
       onClick={onClick}
     >
-      <span className="text-xl">❮</span> {/* Ícone correto para o botão esquerdo */}
+      <span className="text-xl">❮</span>{" "}
+      {/* Ícone correto para o botão esquerdo */}
     </div>
   );
 };
@@ -80,7 +86,8 @@ const CustomRightArrow = ({ onClick }) => {
       aria-label="Next Slide"
       onClick={onClick}
     >
-      <span className="text-xl mr-1">❯</span> {/* Adicionando margem à direita do ícone */}
+      <span className="text-xl mr-1">❯</span>{" "}
+      {/* Adicionando margem à direita do ícone */}
     </div>
   );
 };
