@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <img
               className="w-[190px] h-[70x]"
-              src="../../public/images/logo.png"
+              src="/images/logo.png"
               alt="logo"
             />
             <ul className="flex flex-col gap-2 text-slate-600">
