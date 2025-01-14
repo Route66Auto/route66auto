@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <img
               className="w-[190px] h-[70x]"
-              src="http://localhost:3000/images/logo.png"
+              src="../../public/images/logo.png"
               alt="logo"
             />
             <ul className="flex flex-col gap-2 text-slate-600">
@@ -119,7 +119,7 @@ const Footer = () => {
           <span>
             Route 66 Auto © 2025 - Todos os direitos reservados | CNPJ:{" "}
             <a className="text-blue-500 underline" href="">
-              1111111/0001
+              58.680.080/0001-53
             </a>
           </span>
       </div>
