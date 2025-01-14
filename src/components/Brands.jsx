@@ -38,13 +38,14 @@ const Brands = () => {
             transitionDuration={500}
             containerClass="carousel-container"
             itemClass="px-4"
+            className="bg-white"
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((img, i) => (
               <Link className="h-auto w-full block bg-white" key={i} to="#">
                 <img
                   src={`images/brands/${img}.png`}
                   alt={`Marca ${img}`}
-                  className="w-full h-auto max-h-[150px] object-contain mx-auto hover:scale-105 transition-transform duration-300 ease-in-out"
+                  className="w-full h-auto max-h-[135px] object-contain mx-auto hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </Link>
             ))}
