@@ -78,7 +78,7 @@ const Headers = () => {
               </div>
               <div className="flex group cursor-pointer text-gray-800 text-sm justify-center items-center gap-1 relative after:h-4 after:w-[1px] after:bg-gray-400 after:-right-4 after:absolute before:absolute before:h-4 before:bg-gray-400 before:w-[1px] before:-left-5">
                 <img
-                  src="images/logo.png"
+                  src="images/language.png"
                   alt=""
                   className="w-6 h-6"
                 />
