@@ -37,9 +37,13 @@ const Banner = () => {
                 responsive={responsive}
               >
                 {[1, 2, 3, 4, 5, 6, 7].map((img, i) => (
-                  <Link className="lg-md:h-[440px] h-auto w-full block" key={i} to="#">
+                  <Link
+                    className="lg-md:h-[440px] h-auto w-full block"
+                    key={i}
+                    to="#"
+                  >
                     <img
-                      src={`/images/banner/${img}.jpg`}  // Caminho correto para acessar imagens dentro de public
+                      src={`${process.env.PUBLIC_URL}/images/banner/${img}.jpg`}
                       alt={`Banner ${img}`}
                       className="w-full h-auto"
                     />
