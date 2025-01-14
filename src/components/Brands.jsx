@@ -34,15 +34,17 @@ const Brands = () => {
             infinite={true}
             arrows={false}
             responsive={responsive}
-            autoPlaySpeed={2000} // Tempo em milissegundos entre as transições
-            transitionDuration={500} // Duração da transição entre os slides
+            autoPlaySpeed={2000}
+            transitionDuration={500}
+            containerClass="carousel-container" // Adding a class for custom styling
+            itemClass="carousel-item-padding-40-px" // Adding padding around items
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((img, i) => (
-              <Link className="h-auto w-full block bg-white ml-16" key={i} to="#">
+              <Link className="h-auto w-full block bg-white" key={i} to="#">
                 <img
-                  src={`images/brands/${img}.png`} // Substitua pelo caminho correto das imagens das marcas
+                  src={`images/brands/${img}.png`}
                   alt={`Marca ${img}`}
-                  className="w-[150px] h-[150px] object-contain p-4" // Ajuste o padding e o objeto para manter a proporção
+                  className="w-full h-auto max-h-[150px] object-contain mx-auto"
                 />
               </Link>
             ))}
