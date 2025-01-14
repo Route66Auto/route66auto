@@ -40,19 +40,16 @@ const Categorys = () => {
         {categorys.map((category, index) => (
           <Link
             key={index}
-            to="#"
+            // Change the 'to' prop to navigate to the category page
+            to={`/products?category=${category.name}`}
             className="block transition-transform duration-300 hover:scale-105 mx-2 mr-2 ml-2"
           >
             <div className="relative group h-[200px] bg-gray-200 rounded-lg overflow-hidden shadow-lg">
               <img
                 src={category.image}
-                alt={category}
+                alt={category.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <Link
-                to={`/products?category=${c.name}`}
-                className="text-sm block"
-              ></Link>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3">
                 <span className="text-white font-semibold text-lg">
                   {category.name}
@@ -73,8 +70,7 @@ const CustomLeftArrow = ({ onClick }) => {
       aria-label="Previous Slide"
       onClick={onClick}
     >
-      <span className="text-xl">❮</span>{" "}
-      {/* Ícone correto para o botão esquerdo */}
+      <span className="text-xl">❮</span>
     </div>
   );
 };
@@ -86,8 +82,7 @@ const CustomRightArrow = ({ onClick }) => {
       aria-label="Next Slide"
       onClick={onClick}
     >
-      <span className="text-xl mr-1">❯</span>{" "}
-      {/* Adicionando margem à direita do ícone */}
+      <span className="text-xl mr-1">❯</span>
     </div>
   );
 };
