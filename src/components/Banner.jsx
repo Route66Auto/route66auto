@@ -43,7 +43,7 @@ const Banner = () => {
                     to="#"
                   >
                     <img
-                      src={`${process.env.PUBLIC_URL}/images/banner/${img}.jpg`}
+                      src={`${process.env.PUBLIC_URL}/images/banner/${img}.jpg`} // Caminho correto
                       alt={`Banner ${img}`}
                       className="w-full h-auto"
                     />
@@ -59,3 +59,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

@@ -59,7 +59,7 @@ const Details = () => {
   return (
     <div>
       <Headers />
-      <div className="bg-[url('/images/banner/order.jpg')] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left">
+      <div className="bg-[url('http://localhost:3000/images/banner/order.jpg')] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left">
         <div className="absolute left-0 top-0 w-full h-full bg-[#2422228a]">
           <div className="w-[85%] md:w-[80%] sm:w-[90%] lg:w-[90%] h-full mx-auto">
             <div className="flex flex-col justify-center gap-1 items-center h-full w-full text-white">
@@ -93,8 +93,8 @@ const Details = () => {
                   className="h-[400px] w-full object-contain rounded-md"
                   src={
                     image
-                      ? `http://localhost:3000/images/products/${image}.webp`
-                      : `http://localhost:3000/images/products/${images[1]}.webp`
+                      ? `images/products/${image}.webp`
+                      : `images/products/${images[1]}.webp`
                   }
                   alt="Produto"
                 />
@@ -115,7 +115,7 @@ const Details = () => {
                       >
                         <img
                           className="w-[80px] h-[80px] object-contain rounded-md border hover:shadow-md transition"
-                          src={`http://localhost:3000/images/products/${img}.webp`}
+                          src={`images/products/${img}.webp`}
                           alt={`Produto ${i}`}
                         />
                       </div>
@@ -311,7 +311,7 @@ const Details = () => {
                         <div className="relative h-[270px] rounded-md overflow-hidden shadow-md">
                           <img
                             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                            src={`http://localhost:3000/images/products/${p}.webp`}
+                            src={`images/products/${p}.webp`}
                             alt={`Produto ${p}`}
                           />
                           <div className="absolute text-white bg-red-500 font-semibold text-xs rounded-full px-2 py-1 left-2 top-2 shadow-md">
@@ -367,7 +367,7 @@ const Details = () => {
                       <div className="relative h-[270px]">
                         <img
                           className="w-full h-full object-contain"
-                          src={`http://localhost:3000/images/products/${p}.webp`}
+                          src={`images/products/${p}.webp`}
                           alt={`Produto ${p}`}
                         />
                         <div className="absolute h-full w-full top-0 left-0 bg-black opacity-25 group-hover:opacity-50 transition-opacity duration-300"></div>

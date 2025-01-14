@@ -78,7 +78,7 @@ const Headers = () => {
               </div>
               <div className="flex group cursor-pointer text-gray-800 text-sm justify-center items-center gap-1 relative after:h-4 after:w-[1px] after:bg-gray-400 after:-right-4 after:absolute before:absolute before:h-4 before:bg-gray-400 before:w-[1px] before:-left-5">
                 <img
-                  src="/images/logo.png"
+                  src="images/logo.png"
                   alt=""
                   className="w-6 h-6"
                 />
@@ -122,7 +122,7 @@ const Headers = () => {
                 <Link to="/">
                   <img
                     className="w-[110px] h-[110px] md:w-[120px] md:h-[120px] transition-all duration-300"
-                    src="/images/logo.png"
+                    src="images/logo.png"
                     alt="logo"
                   />
                 </Link>
@@ -251,14 +251,14 @@ const Headers = () => {
             <Link to="/">
               <img
                 className="w-[120px] h-[120px]"
-                src="/images/logo.png"
+                src="images/logo.png"
                 alt="logo"
               />
             </Link>
             <div className="flex justify-start items-center gap-10">
               <div className="flex group cursor-pointer text-gray-800 text-sm justify-center items-center gap-1 relative after:h-4 after:w-[1px] after:bg-gray-400 after:-right-4 after:absolute">
                 <img
-                  src="/images/language.png"
+                  src="images/language.png"
                   alt=""
                   className="w-6 h-6"
                 />
