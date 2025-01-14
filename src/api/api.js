@@ -1,6 +1,6 @@
 import axios from "axios";
 const local = "http://localhost:5000";
-const production = "http://localhost:6000";
+const production = "https://route66auto-api.onrender.com/";
 
 let api_url = ''
 let mode = 'pro'
@@ -16,3 +16,4 @@ const api = axios.create({
 });
 
 export default api;
+
