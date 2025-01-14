@@ -39,7 +39,7 @@ const Banner = () => {
                 {[1, 2, 3, 4, 5, 6, 7].map((img, i) => (
                   <Link className="lg-md:h-[440px] h-auto w-full block" key={i} to="#">
                     <img
-                      src={`/images/banner/${img}.jpg`}
+                      src={`/images/banner/${img}.jpg`}  // Caminho correto para acessar imagens dentro de public
                       alt={`Banner ${img}`}
                       className="w-full h-auto"
                     />
