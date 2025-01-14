@@ -40,7 +40,7 @@ const Brands = () => {
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((img, i) => (
               <Link className="h-auto w-full block bg-white ml-16" key={i} to="#">
                 <img
-                  src={`http://localhost:3000/images/brands/${img}.png`} // Substitua pelo caminho correto das imagens das marcas
+                  src={`../../public/images/brands/${img}.png`} // Substitua pelo caminho correto das imagens das marcas
                   alt={`Marca ${img}`}
                   className="w-[150px] h-[150px] object-contain p-4" // Ajuste o padding e o objeto para manter a proporção
                 />
