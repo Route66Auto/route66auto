@@ -24,7 +24,7 @@ const Brands = () => {
   };
 
   return (
-    <div className="w-full md-lg:mt-6">
+    <div className="w-full md:mt-6">
       <div className="w-[85%] lg:w-[90%] mx-auto">
         <h2 className="text-2xl text-center font-semibold text-gray-800">Nossas Marcas</h2>
         <div className="w-[100px] h-[3px] bg-orange-600 mx-auto mt-4 rounded"></div>
@@ -36,15 +36,15 @@ const Brands = () => {
             responsive={responsive}
             autoPlaySpeed={2000}
             transitionDuration={500}
-            containerClass="carousel-container" // Adding a class for custom styling
-            itemClass="carousel-item-padding-40-px" // Adding padding around items
+            containerClass="carousel-container"
+            itemClass="px-4"
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((img, i) => (
               <Link className="h-auto w-full block bg-white" key={i} to="#">
                 <img
                   src={`images/brands/${img}.png`}
                   alt={`Marca ${img}`}
-                  className="w-full h-auto max-h-[150px] object-contain mx-auto"
+                  className="w-full h-auto max-h-[150px] object-contain mx-auto hover:scale-105 transition-transform duration-300 ease-in-out"
                 />
               </Link>
             ))}
