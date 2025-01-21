@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import Headers from "../components/Headers";
 import Footer from "../components/Footer";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { place_order } from "../store/reducers/orderReducer";
 const Shipping = () => {
-  const { state: { products } } = useLocation();
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {userInfo} = useSelector(state=>state.auth)
+  const { state: { products, price, shipping_fee, items } } = useLocation();
   const [res, setRes] = useState(false);
   const [state, setState] = useState({
     name: "",
@@ -46,11 +52,21 @@ const Shipping = () => {
       .replace(/(\d{4,5})(\d{4})$/, "$1-$2") // Adiciona o traço
       .substring(0, 15); // Limita o comprimento total a 15 caracteres
   };
-  console.log(products)
+  const placeOrder = () => {
+    dispatch(place_order({
+      price,
+      products,
+      shipping_fee,
+      shippingInfo: state,
+      userId: userInfo.id,
+      navigate,
+      items
+    }))
+  }
   return (
     <div>
       <Headers />
-      <section className="bg-[url('http://localhost:3000/images/banner/card.jpg')] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left">
+      <section className="bg-[url('http://localhost:3000/images/banner/order.jpg')] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left">
         <div className="absolute left-0 top-0 w-full h-full bg-[#2422228a]">
           <div className="w-[85%] md:w-[80%] sm:w-[90%] lg:w-[90%] h-full mx-auto">
             <div className="flex flex-col justify-center gap-1 items-center h-full w-full text-white">
@@ -198,39 +214,37 @@ const Shipping = () => {
                     </div>
                   )}
                 </div>
-                {[1, 2].map((p, i) => (
-                  <div className="flex bg-white p-4 flex-col gap-2">
+                {products.map((p, i) => (
+                  <div key={i} className="flex bg-white p-4 flex-col gap-2">
                     <div className="flex justify-start items-center">
                       <h2 className="text-md text-slate-600 font-semibold">
-                        Car Store
+                        {p.shopName}
                       </h2>
                     </div>
-                    {[1, 2].map((p, i) => (
-                      <div className="w-full flex flex-wrap">
+                    {p.products.map((pt, j) => (
+                      <div key={i + 99} className="w-full flex flex-wrap">
                         <div className="flex sm:w-full gap-2 w-7/12">
                           <div className="flex gap-2 justify-start items-center">
                             <img
                               className="w-[80px] h-[80px]"
-                              src={`http://localhost:3000/images/products/${
-                                i + 1
-                              }.webp`}
+                              src={pt.productInfo.images[0]}
                               alt="product image"
                             />
                             <div className="pr-4 text-slate-600">
                               <h2 className="text-md">
-                                Long Sleeve casua Shirt for Man
+                              {pt.productInfo.name}
                               </h2>
-                              <span className="text-sm">Marca : Easy</span>
+                              <span className="text-sm">Marca : {pt.productInfo.brand}</span>
                             </div>
                           </div>
                         </div>
                         <div className="flex justify-end w-5/12 sm:w-full sm:mt-3">
                           <div className="pl-4 sm:pl-0">
                             <h2 className="text-lg text-orange-600 font-semibold">
-                              R$ 600,00
+                            R$ {pt.productInfo.price - Math.floor((pt.productInfo.price * pt.productInfo.discount) / 100)}
                             </h2>
-                            <p className="line-through">R$ 630,00</p>
-                            <p>-10%</p>
+                            <p className="line-through">R$ {pt.productInfo.price}</p>
+                            <p>-{pt.productInfo.discount}%</p>
                           </div>
                         </div>
                       </div>
@@ -244,22 +258,23 @@ const Shipping = () => {
                 <div className="bg-white font-medium p-5 text-slate-600 flex flex-col gap-3">
                   <h2 className="text-xl font-semibold">Resumo do Pedido</h2>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold">Total Itens</span>
-                    <span>R$ 520,00</span>
+                    <span className="font-semibold">Total Itens ({price})</span>
+                    <span>R$ {price}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Valor do Frete</span>
-                    <span>R$ 12,00</span>
+                    <span>R$ {shipping_fee}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Total Pagamento</span>
-                    <span>R$ 520,00</span>
+                    <span>R$ {price+shipping_fee}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Valor Total</span>
-                    <span>R$ 532,00</span>
+                    <span>R$ {price+shipping_fee}</span>
                   </div>
                   <button
+                    onClick={placeOrder}
                     disabled={res ? false : true}
                     className={`px-5 py-[6px] rounded-sm hover:shadow-orange-500/20 hover:shadow-lg ${
                       res ? "bg-orange-600" : "bg-orange-300"
